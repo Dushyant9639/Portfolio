@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+/* Global */
+:root {
+  --bg-1: #070117;
+  --bg-2: #0d0526;
+  --accent-1: #8b5cf6;
+  --accent-2: #a78bfa;
+  --text: #e6eef8;
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-gradient-to-b from-[#030213] to-[#05021a] text-gray-100;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Calendar Container */
+.modern-calendar {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+/* Animated Background Grid */
+.bg-grid {
+  background-image: linear-gradient(
+      rgba(139, 92, 246, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.25;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+/* Contact Card */
+.magic-contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 0 28px rgba(139, 92, 246, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background floating elements */
+.floating-orb {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.15;
+}
+
+.orb1 {
+  background: #8b5cf6;
+  top: -80px;
+  left: -60px;
+  animation: float1 12s infinite ease-in-out;
+}
+.orb2 {
+  background: #3b82f6;
+  bottom: -60px;
+  right: -50px;
+  animation: float2 14s infinite ease-in-out;
+}
+
+/* Input Fields */
+.contact-input {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  outline: none;
+  transition: 0.2s;
+}
+.contact-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+/* Buttons */
+.contact-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+  padding: 14px;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: 0.25s;
+}
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(139, 92, 246, 0.45);
+}
+
+/* Social Buttons */
+.social-btn {
+  padding: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: 0.3s;
+}
+.social-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(139, 92, 246, 0.45);
+}
+
+/* Floating Orbs */
+.floating-orb {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+}
+
+.orb1 {
+  background: rgb(139, 92, 246);
+  top: -40px;
+  left: -50px;
+  animation: float1 12s infinite ease-in-out;
+}
+
+.orb2 {
+  background: rgb(56, 189, 248);
+  bottom: -60px;
+  right: -40px;
+  animation: float2 14s infinite ease-in-out;
+}
+
+@keyframes float1 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(40px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes float2 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-40px); }
+  100% { transform: translateX(0); }
+}
+
+/* Shimmer Across the Calendar */
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  width: 150%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 100%
+  );
+  animation: shimmerMove 8s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+/* Heat Pulse on the Calendar */
+.calendar-heatpulse {
+  animation: heatPulse 5s infinite linear;
+}
+
+@keyframes heatPulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.07); }
+  100% { filter: brightness(1); }
+}
+
+/* Multi-blob glow (Glow B) */
+.glow-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  will-change: transform;
+  animation-duration: 14s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.blob.b1 { background: radial-gradient(circle at 30% 30%, rgba(167,139,250,0.35), rgba(139,92,246,0.15)); width: 520px; height: 520px; left: -10%; top: -10%; animation-name: move1; }
+.blob.b2 { background: radial-gradient(circle at 30% 30%, rgba(50,138,241,0.28), rgba(167,139,250,0.12)); width: 420px; height: 420px; right: -5%; top: 10%; animation-name: move2; animation-duration: 18s; }
+.blob.b3 { background: radial-gradient(circle at 30% 30%, rgba(255,84,140,0.20), rgba(139,92,246,0.12)); width: 380px; height: 380px; left: 10%; bottom: -8%; animation-name: move3; animation-duration: 20s; }
+
+@keyframes move1 { 0%{transform:translate(0,0) scale(.95)}50%{transform:translate(40px,60px) scale(1.05)}100%{transform:translate(0,0) scale(.95)}}
+@keyframes move2 { 0%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,-40px) scale(.92)}100%{transform:translate(0,0) scale(1)}}
+@keyframes move3 { 0%{transform:translate(0,0) scale(.98)}50%{transform:translate(30px,-50px) scale(1.06)}100%{transform:translate(0,0) scale(.98)}}
+
+/* Glass card */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+  border: 1px solid rgba(167,139,250,0.12);
+  backdrop-filter: blur(8px);
+}
+
+/* Responsive helpers */
+@media (max-width: 768px) {
+  .hero-title { font-size: 1.65rem; }
+}
+/* ===== Projects – Premium Neon + Glass Effects ===== */
+
+/* subtle grid pattern (replace with your own image if desired) */
+.grid-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mix-blend-mode: overlay;
+}
+
+/* neon edge sweep */
+.neon-edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  --angle: -20deg;
+  background: linear-gradient(var(--angle), transparent 0%, rgba(255,255,255,0.03) 32%, rgba(255,255,255,0.06) 44%, rgba(255,255,255,0.03) 56%, transparent 100%);
+  transform: translateX(-140%);
+  transition: transform 0.7s cubic-bezier(.2,.9,.2,1), opacity .3s;
+  opacity: 0.8;
+}
+article:hover .neon-edge,
+article:focus-within .neon-edge {
+  transform: translateX(140%);
+}
+
+/* glass beam — moving soft reflection */
+.glass-beam {
+  background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.04) 100%);
+  transform: rotate(-18deg) translateX(-30%);
+  filter: blur(24px);
+  opacity: 0.7;
+  transition: transform 0.9s cubic-bezier(.2,.9,.2,1);
+}
+article:hover .glass-beam {
+  transform: rotate(-18deg) translateX(18%);
+}
+
+/* neon aura for small tags */
+.featured-tag {
+  background: linear-gradient(90deg, rgba(139,92,246,0.12), rgba(236,72,153,0.06));
+}
+
+/* subtle card blur - create depth */
+.backdrop-blur-3xl {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* polish for image scaling */
+article img {
+  transition: transform 0.7s cubic-bezier(.2,.9,.2,1);
+}
+
+/* modal backdrop polish */
+.fixed .backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* minor responsive adjustments */
+@media (max-width: 768px) {
+  .neon-edge { display: none; }
+  .glass-beam { display: none; }
+  .grid-pattern { background-size: 16px 16px; }
+}
+
+/* tiny accessibility: prefer-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+.glass-ultra {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2),
+              inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+.github-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s ease;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.12);
+}
+
+/* Pulse Effect for GitHub Calendar */
+.pulse-calendar {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 0px rgba(139, 92, 246, 0.2)); }
+  50% { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4)); }
+  100% { filter: drop-shadow(0 0 0px rgba(139, 92, 246, 0.2)); }
+}
+/* Enhanced calendar – subtle shimmer */
+.enhanced-calendar {
+  animation: calendarGlow 6s infinite linear;
+}
+
+@keyframes calendarGlow {
+  0% { filter: brightness(1) drop-shadow(0 0 1px rgba(139, 92, 246, 0.1)); }
+  50% { filter: brightness(1.06) drop-shadow(0 0 6px rgba(139, 92, 246, 0.25)); }
+  100% { filter: brightness(1) drop-shadow(0 0 1px rgba(139, 92, 246, 0.1)); }
+}
