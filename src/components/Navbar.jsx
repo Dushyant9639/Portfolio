@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const resumePath = "/Dushyant Goyal_Resume.pdf";
+  const resumePath = "/Dushyant_Goyal_Resume..pdf";
 
   return (
     <nav className="fixed w-full top-0 left-0 z-50 backdrop-blur-xl bg-black/20 border-b border-purple-500/20 shadow-lg">

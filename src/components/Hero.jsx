@@ -11,7 +11,7 @@ import {
 } from "react-icons/si";
 
 export default function Hero() {
-  const resumePath = "/Dushyant Goyal_Resume.pdf";
+  const resumePath = "/Dushyant_Goyal_Resume..pdf";
 
   return (
     <section
