@@ -1,3 +1,4 @@
+
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -12,6 +13,25 @@ import {
 
 export default function Hero() {
   const resumePath = "/Dushyant_Goyal_Resume..pdf";
+  const handleResume = (e) => {
+    e.preventDefault();
+
+    const resumeViewLink =
+      "https://drive.google.com/file/d/11rs5v1G8OBRp94k5S6EbdMf33jJloqtO/view";
+    const resumeDownloadLink =
+      "https://drive.google.com/uc?export=download&id=11rs5v1G8OBRp94k5S6EbdMf33jJloqtO";
+
+    // Open in new tab
+    window.open(resumeViewLink, "_blank");
+
+    // Auto-download
+    const link = document.createElement("a");
+    link.href = resumeDownloadLink;
+    link.download = "Dushyant_Goyal_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section
@@ -41,7 +61,6 @@ export default function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
-
         {/* LEFT SECTION */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -88,20 +107,19 @@ export default function Hero() {
           {/* Description */}
           <p className="mt-6 text-gray-300 leading-relaxed max-w-xl">
             I build scalable web solutions using the{" "}
-            <span className="text-purple-300 font-semibold">MERN Stack</span>  
-            while integrating modern AI capabilities with Gemini API.  
-            My work balances precision, performance, and creativity.
+            <span className="text-purple-300 font-semibold">MERN Stack </span>
+            while integrating modern AI capabilities with Gemini API. My work
+            balances precision, performance, and creativity.
           </p>
 
           {/* Buttons */}
           <div className="mt-8 flex gap-4 flex-wrap">
-            <a
-              href={resumePath}
-              download
+            <button
+              onClick={handleResume}
               className="px-6 py-3 rounded-xl bg-gradient-to-br from-purple-600 to-purple-500 text-white shadow-lg border border-purple-300/20 hover:shadow-purple-500/40 transition"
             >
               Download Resume
-            </a>
+            </button>
 
             <a
               href="#projects"
@@ -146,8 +164,8 @@ export default function Hero() {
               src="/profile.jpg"
               alt="profile"
               className="w-full h-full object-cover rounded-full"
-            //   animate={{ y: [0, -12, 0] }}
-            //   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              //   animate={{ y: [0, -12, 0] }}
+              //   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
             />
           </motion.div>
 
