@@ -1,35 +1,3 @@
-// import React from "react";
-// import { SiJavascript, SiReact, SiTailwindcss, SiMongodb, SiFirebase, SiTypescript } from "react-icons/si";
-// import { motion } from "framer-motion";
-
-// const skillList = [
-//   { icon: <SiJavascript size={28} />, name: "JavaScript" },
-//   { icon: <SiReact size={28} />, name: "React" },
-//   { icon: <SiTailwindcss size={28} />, name: "Tailwind" },
-//   { icon: <SiMongodb size={28} />, name: "MongoDB" },
-//   { icon: <SiFirebase size={28} />, name: "Firebase" },
-//   { icon: <SiTypescript size={28} />, name: "TypeScript" },
-// ];
-
-// export default function Skills() {
-//   return (
-//     <section id="skills" className="section">
-//       <div className="max-w-6xl mx-auto">
-//         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Skills</h2>
-//         <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
-//           {skillList.map((s, i) => (
-//             <motion.div key={i} whileHover={{ y: -6 }} className="bg-black/30 rounded-lg p-6 flex flex-col items-center justify-center border border-purple-600/10">
-//               <div className="text-purple-300">{s.icon}</div>
-//               <p className="mt-3 text-gray-200 font-medium">{s.name}</p>
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// Method -2 
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -59,8 +27,6 @@ import {
 } from "react-icons/si";
 
 import { GiArtificialIntelligence } from "react-icons/gi";
-
-// ✔ All Skills in one creative place
 const skillList = [
   { name: "JavaScript", icon: <SiJavascript size={30} />, cat: "Frontend" },
   { name: "TypeScript", icon: <SiTypescript size={30} />, cat: "Frontend" },
